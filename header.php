@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title><?php bloginfo('name'); ?></title>
+
+    <?php wp_head(); ?>
 </head>
-<body>
-    
-<header> 
-    <h1> <?php bloginfo('name') ?></h1>
+
+<body <?php body_class(); ?>>
+
+<header>
+    <h1><?php bloginfo('name'); ?></h1>
 </header>
-</html>
+<nav>
+    <?php
+        wp_nav_menu(array(
+            'theme_location' => 'primary'
+        ));
+    ?>
+</nav>
